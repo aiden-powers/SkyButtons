@@ -12,7 +12,7 @@ import java.util.List;
 
 import static com.example.UiTooling.makeButtonList;
 
-public class ExperimentalScreen extends BaseOwoScreen<FlowLayout> {
+public class ListingScreen extends BaseOwoScreen<FlowLayout> {
 
     boolean ifOpenAllOnStartup = true;
 

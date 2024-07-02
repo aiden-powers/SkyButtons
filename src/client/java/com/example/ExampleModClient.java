@@ -16,7 +16,7 @@ public class ExampleModClient implements ClientModInitializer {
         // Check KeyBinding in ClientTick Event
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (KeyBindingManager.openScreenKeyBinding.wasPressed()) {
-                MinecraftClient.getInstance().setScreen(new ExperimentalScreen()); // Change to MyFirstScreen eventually
+                MinecraftClient.getInstance().setScreen(new ListingScreen()); // Change to MyFirstScreen eventually
             }
         });
 
