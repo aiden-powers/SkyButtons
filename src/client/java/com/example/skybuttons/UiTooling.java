@@ -1,9 +1,11 @@
-package com.example;
+package com.example.skybuttons;
 
+import com.example.powersaj.StringPair;
 import io.wispforest.owo.ui.component.Components;
 import io.wispforest.owo.ui.container.Containers;
-import io.wispforest.owo.ui.core.*;
-import kotlin.Pair;
+import io.wispforest.owo.ui.core.Component;
+import io.wispforest.owo.ui.core.Insets;
+import io.wispforest.owo.ui.core.Sizing;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.Text;
 
@@ -42,10 +44,14 @@ public class UiTooling {
      * @return Returns a list of buttons in a collapsible container.
      * @see #makeButtonList(String, List)
      */
-    static Component makeButtonList(String listName, List<Pair<String, String>> buttonNamesListWithCommands, boolean openOnStartup){
+    static Component makeButtonList(String listName, List<StringPair> buttonNamesListWithCommands, boolean openOnStartup){
         return Containers.collapsible(Sizing.content(),Sizing.content(),Text.literal(listName), openOnStartup)
-                .children(buttonNamesListWithCommands.stream().map(pair -> makeButtonListEntry(pair.getFirst(), pair.getSecond())).toList())
-                .horizontalAlignment(HorizontalAlignment.LEFT).padding(Insets.of(2,2,2,2)).margins(Insets.of(3));
+                .child(Containers.verticalFlow(Sizing.content(),Sizing.content())
+                        .children(buttonNamesListWithCommands.stream()
+                                .map(pair -> makeButtonListEntry(pair.getFirst(), pair.getSecond()))
+                                .toList()
+                        )
+                );
     }
 
     /**
@@ -54,10 +60,6 @@ public class UiTooling {
      * @return Returns a list of buttons in a collapsible container.
      * @see #makeButtonList(String, List, boolean)
      */
-    static Component makeButtonList(String listName, List<Pair<String, String>> buttonNamesListWithCommands){
-        return Containers.collapsible(Sizing.content(),Sizing.content(),Text.literal(listName), true)
-                .children(buttonNamesListWithCommands.stream().map(pair -> makeButtonListEntry(pair.getFirst(), pair.getSecond())).toList())
-                .horizontalAlignment(HorizontalAlignment.LEFT).padding(Insets.of(2,2,2,2)).margins(Insets.of(1));
-    }
-
-}
+    static Component makeButtonList(String listName, List<StringPair> buttonNamesListWithCommands){
+        return makeButtonList(listName, buttonNamesListWithCommands, true);
+}}
