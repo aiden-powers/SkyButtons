@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "skybuttons",
-    "version": "0.100.3+1.21+beta3",
+    "version": "0.100.3+1.21+beta_3",
 	"name": "Skybuttons",
 	"description": "",
 	"authors": [
@@ -15,20 +15,11 @@
 	"icon": "assets/modid/icon.png",
 	"environment": "*",
 	"entrypoints": {
-		"main": [
-			"com.example.ExampleMod"
-		],
 		"client": [
 			"com.example.ExampleModClient"
 		]
 	},
-	"mixins": [
-		"modid.mixins.json",
-		{
-			"config": "modid.client.mixins.json",
-			"environment": "client"
-		}
-	],
+	"mixins": [],
 	"depends": {
 		"fabricloader": ">=0.15.11",
 		"minecraft": "~1.21",

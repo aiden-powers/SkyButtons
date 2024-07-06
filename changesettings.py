@@ -34,6 +34,6 @@ def change_mod_version(mod_version):
 
 
 if __name__ == "__main__":
-    mod_version = "beta3"
+    mod_version = "beta_3"
     fabric = get_fabric_version()
     change_mod_version(fabric + "+" + mod_version)
