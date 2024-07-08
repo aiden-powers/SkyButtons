@@ -1,6 +1,6 @@
-package com.example.skybuttons;
+package powersaj.skybuttons.skybuttons;
 
-import com.example.powersaj.StringPair;
+import powersaj.skybuttons.powersaj.StringPair;
 import io.wispforest.owo.ui.component.Components;
 import io.wispforest.owo.ui.container.Containers;
 import io.wispforest.owo.ui.core.Component;

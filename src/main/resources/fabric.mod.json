@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "skybuttons",
-    "version": "0.100.3+1.21+beta_3",
+    "version": "0.100.3+1.21+1.0.0",
 	"name": "Skybuttons",
 	"description": "",
 	"authors": [
@@ -16,7 +16,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"client": [
-			"com.example.ExampleModClient"
+			"powersaj.skybuttons.ExampleModClient"
 		]
 	},
 	"mixins": [],

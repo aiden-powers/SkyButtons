@@ -1,4 +1,4 @@
-package com.example.powersaj;
+package powersaj.skybuttons.powersaj;
 
 public class StringPair {
     private String first;

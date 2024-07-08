@@ -1,4 +1,4 @@
-package com.example.skybuttons;
+package powersaj.skybuttons.skybuttons;
 
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBinding;
@@ -12,7 +12,7 @@ public class KeyBindingManager {
 
     public static void registerAll() {
         // Step 2: Register the KeyBinding
-        openScreenKeyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+	    KeyBindingManager.openScreenKeyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 "Open Warp Menu",
                 InputUtil.Type.KEYSYM,
                 GLFW.GLFW_KEY_UP,
