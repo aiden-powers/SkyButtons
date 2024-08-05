@@ -42,6 +42,5 @@ if __name__ == "__main__":
     realversion = "1.0"
     commit_count = get_commit_count()
     mod_version = realversion + "." + commit_count
-    fabric = get_fabric_version()
-    change_mod_version(mod_version + "+" + fabric)
-    print(f"Mod version updated to {mod_version + '+' + fabric}")
+    change_mod_version(mod_version)
+    print(f"Mod version updated to {mod_version}")
