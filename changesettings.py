@@ -1,4 +1,9 @@
 import os
+import subprocess
+
+def get_commit_count():
+    result = subprocess.run(["git", "rev-list", "--count", "HEAD"], capture_output=True, text=True)
+    return result.stdout.strip()
 
 def get_fabric_version():
     with open("gradle.properties", "r") as f:
@@ -6,7 +11,6 @@ def get_fabric_version():
     for line in lines:
         if "fabric_version" in line:
             return line.split("=")[1].strip()
-
 
 def change_gradle_properties(mod_version):
     with open("gradle.properties", "r") as f:
@@ -32,8 +36,9 @@ def change_mod_version(mod_version):
     change_gradle_properties(mod_version)
     change_fabric_mod_json(mod_version)
 
-
 if __name__ == "__main__":
-    mod_version = "1.0.0"
+    realversion = "1.0"
+    commit_count = get_commit_count()
+    mod_version = realversion + "." + commit_count
     fabric = get_fabric_version()
-    change_mod_version(fabric + "+" + mod_version)
+    change_mod_version(mod_version + "+" + fabric)
