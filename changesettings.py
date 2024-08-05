@@ -21,6 +21,7 @@ def change_gradle_properties(mod_version):
                 f.write(f'mod_version={mod_version}\n')
             else:
                 f.write(line)
+    print("Updated gradle.properties")
 
 def change_fabric_mod_json(mod_version):
     with open("src/main/resources/fabric.mod.json", "r") as f:
@@ -31,6 +32,7 @@ def change_fabric_mod_json(mod_version):
                 f.write(f'    "version": "{mod_version}",\n')
             else:
                 f.write(line)
+    print("Updated fabric.mod.json")
 
 def change_mod_version(mod_version):
     change_gradle_properties(mod_version)
@@ -42,3 +44,4 @@ if __name__ == "__main__":
     mod_version = realversion + "." + commit_count
     fabric = get_fabric_version()
     change_mod_version(mod_version + "+" + fabric)
+    print(f"Mod version updated to {mod_version + '+' + fabric}")
