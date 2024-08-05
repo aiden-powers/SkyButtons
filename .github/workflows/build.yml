@@ -72,7 +72,7 @@ jobs:
           JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Microsoft_jdk/21.0.2/x64
           JAR_FILE: ${{ env.JAR_FILE }}
         with:
-          tag_name: ${{ env.MINECRAFT_VERSION }}
+          tag_name: ${{ env.MINECRAFT_VERSION }}-v${{ github.run_number }}
           release_name: ${{ env.JAR_BASENAME }}
           draft: false
           prerelease: false
