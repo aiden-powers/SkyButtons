@@ -47,14 +47,29 @@ jobs:
           JAR_FILE=$(find build/libs -name "Skybuttons-*.jar")
           echo "JAR_FILE=$JAR_FILE" >> $GITHUB_ENV
 
+      - name: read minecraft_version
+        id: read_minecraft_version
+        run: |
+          minecraft_version=$(grep 'minecraft_version=' gradle.properties | cut -d'=' -f2)
+          echo "MINECRAFT_VERSION=$minecraft_version" >> $GITHUB_ENV
+
       - name: create release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          pythonLocation: /opt/hostedtoolcache/Python/3.12.4/x64
+          PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.4/x64/lib/pkgconfig
+          Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.4/x64
+          Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.4/x64
+          Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.4/x64
+          LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.4/x64/lib
+          JAVA_HOME: /opt/hostedtoolcache/Java_Microsoft_jdk/21.0.2/x64
+          JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Microsoft_jdk/21.0.2/x64
+          JAR_FILE: ${{ env.JAR_FILE }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: ${{ env.MINECRAFT_VERSION }}
+          release_name: $(basename ${{ env.JAR_FILE }})
           draft: false
           prerelease: false
 
