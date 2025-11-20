@@ -21,7 +21,7 @@ public class UiTooling {
     static Component makeButtonListEntry(String buttonName, String commandExecute){
         return Components.button(Text.literal(buttonName), button -> {
             assert MinecraftClient.getInstance().player != null;
-            MinecraftClient.getInstance().player.networkHandler.sendCommand(commandExecute);
+            MinecraftClient.getInstance().player.networkHandler.sendChatCommand(commandExecute);
         }).margins(Insets.of(0,3,0,9));
     }
 
@@ -33,7 +33,7 @@ public class UiTooling {
     static Component makeButtonEntry(String buttonName, String commandExecute){
         return Components.button(Text.literal(buttonName), button -> {
             assert MinecraftClient.getInstance().player != null;
-            MinecraftClient.getInstance().player.networkHandler.sendCommand(commandExecute);
+            MinecraftClient.getInstance().player.networkHandler.sendChatCommand(commandExecute);
         }).margins(Insets.of(2));
     }
 
